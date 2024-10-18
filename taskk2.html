@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life in Weeks</title>
+</head>
+<body>
+
+    <h1>Life in Weeks</h1>
+
+
+    <label for="ageInput">Enter your age:</label>
+    <input type="number" id="ageInput" placeholder="Enter your age" min="0" max="90">
+
+
+    <button onclick="calculateLifeInWeeks()">Calculate</button>
+
+
+    <p id="output"></p>
+
+    <script>
+        function calculateLifeInWeeks() {
+
+            let age = document.getElementById("ageInput").value;
+
+
+            if (age && age >= 0 && age <= 90) {
+
+                const maxAge = 90;
+                const yearsLeft = maxAge - age;
+
+
+                const daysLeft = yearsLeft * 365;
+                const weeksLeft = yearsLeft * 52;
+                const monthsLeft = yearsLeft * 12;
+
+                // Display the result
+                document.getElementById("output").textContent =
+                    `You have ${daysLeft} days, ${weeksLeft} weeks, and ${monthsLeft} months left.`;
+            } else {
+                document.getElementById("output").textContent = "Please enter a valid age between 0 and 90.";
+            }
+        }
+    </script>
+
+</body>
+</html>

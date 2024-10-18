@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greet User</title>
+</head>
+<body>
+
+    
+    <input type="text" id="nameInput" placeholder="Enter your name here">
+
+    
+    <button onclick="greetUser()">Greet Me</button>
+
+    
+    <p id="output"></p>
+
+    <script>
+        function greetUser() {
+            
+            let userName = document.getElementById("nameInput").value;
+
+            if (userName) {
+                
+                let standardizedUserName = userName[0].toUpperCase() + userName.slice(1).toLowerCase();
+
+
+                document.getElementById("output").textContent = "Hello " + standardizedUserName;
+            } else {
+                document.getElementById("output").textContent = "Please enter your name!";
+            }
+        }
+    </script>
+
+</body>
+</html>

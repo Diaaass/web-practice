@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+</head>
+<body>
+
+    <h1>BMI Calculator</h1>
+
+    <!-- Input fields for weight and height -->
+    <label for="weightInput">Enter your weight (kg):</label>
+    <input type="number" id="weightInput" placeholder="Enter weight in kg" min="0" step="any"><br><br>
+
+    <label for="heightInput">Enter your height (m):</label>
+    <input type="number" id="heightInput" placeholder="Enter height in meters" min="0" step="any"><br><br>
+
+    <!-- Button to trigger the BMI calculation -->
+    <button onclick="calculateBMI()">Calculate BMI</button>
+
+    <!-- Output field where the BMI result will be displayed -->
+    <p id="bmiOutput"></p>
+
+    <script>
+        function calculateBMI() {
+            // Get weight and height from input fields
+            let weight = parseFloat(document.getElementById("weightInput").value);
+            let height = parseFloat(document.getElementById("heightInput").value);
+
+            // Validate the inputs
+            if (weight > 0 && height > 0) {
+                // Calculate the BMI
+                let bmi = weight / (height * height);
+                bmi = bmi.toFixed(2);  // Round to 2 decimal places
+
+                // Determine the BMI category and return the corresponding message
+                let message;
+                if (bmi < 18.5) {
+                    message = `Your BMI is ${bmi}, so you are underweight.`;
+                } else if (bmi >= 18.5 && bmi <= 24.9) {
+                    message = `Your BMI is ${bmi}, so you have a normal weight.`;
+                } else {
+                    message = `Your BMI is ${bmi}, so you are overweight.`;
+                }
+
+                // Display the result in the output field
+                document.getElementById("bmiOutput").textContent = message;
+            } else {
+                document.getElementById("bmiOutput").textContent = "Please enter valid values for weight and height.";
+            }
+        }
+    </script>
+
+</body>
+</html>
