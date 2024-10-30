@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Bar</title>
+    <style>
+        #progressBar {
+            width: 100%;
+            background-color: #f3f3f3;
+        }
+
+        #progress {
+            width: 0;
+            height: 30px;
+            background-color: #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div id="progressBar">
+        <div id="progress"></div>
+    </div>
+    <button id="updateButton">Update Progress</button>
+    <script>
+        let progress = 0;
+        document.getElementById("updateButton").addEventListener("click", function() {
+            if (progress < 100) {
+                progress += 10; // Increment progress
+                document.getElementById("progress").style.width = progress + '%';
+            }
+        });
+    </script>
+</body>
+</html>
